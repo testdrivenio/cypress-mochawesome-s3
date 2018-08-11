@@ -11,7 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.286.2",
-    "cypress": "^3.0.3"
+    "cypress": "^3.0.3",
+    "mocha": "^5.2.0",
+    "mochawesome": "^3.0.3",
+    "rimraf": "^2.6.2",
+    "shelljs": "^0.8.2",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

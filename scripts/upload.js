@@ -19,7 +19,7 @@ function uploadToS3(file, name, type) {
     ContentType: `image/${type}`,
   };
   s3bucket.upload(params, (err, data) => {
-    if (err) { throw err; }
+    if (err) throw err;
     /* eslint-disable no-console */
     console.log('Success!');
     console.log(data);
@@ -31,7 +31,7 @@ function getFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir);
   files.forEach((file) => {
     const filePath = `${dir}/${file}`;
-    if (['.gitkeep', '.Trash-0'].indexOf(file) === -1) {
+    if (['.gitkeep', '.Trash-0', 'assets'].indexOf(file) === -1) {
       if (fs.statSync(filePath).isDirectory()) {
         getFiles(filePath, fileList);
       } else {
@@ -48,28 +48,38 @@ function getFiles(dir, fileList = []) {
 }
 
 function uploadVideos() {
-  const videosDir = path.join(__dirname, 'cypress', 'videos');
+  const videosDir = path.join(__dirname, '..', 'cypress', 'videos');
   const videos = getFiles(videosDir, []);
   videos.forEach((videoObject) => {
     fs.readFile(videoObject.path, (err, data) => {
-      if (err) { throw err; }
+      if (err) throw err;
       uploadToS3(data, videoObject.name, videoObject.type);
     });
   });
 }
 
 function uploadScreenshots() {
-  const screenshotsDir = path.join(__dirname, 'cypress', 'screenshots');
+  const screenshotsDir = path.join(__dirname, '..', 'cypress', 'screenshots');
   const screenshots = getFiles(screenshotsDir, []);
   screenshots.forEach((screenshotObject) => {
     fs.readFile(screenshotObject.path, (err, data) => {
-      if (err) { throw err; }
+      if (err) throw err;
       uploadToS3(data, screenshotObject.name, screenshotObject.type);
     });
   });
 }
 
+function uploadMochaAwesome() {
+  const reportsDir = path.join(__dirname, '..', 'reports');
+  const report = getFiles(reportsDir, [])[0];
+  fs.readFile(report.path, (err, data) => {
+    if (err) throw err;
+    uploadToS3(data, report.name, report.type);
+  });
+}
+
 module.exports = {
   uploadVideos,
-  uploadScreenshots
+  uploadScreenshots,
+  uploadMochaAwesome,
 }

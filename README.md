@@ -1,6 +1,7 @@
-# Cypress S3 Upload
+# Cypress - Mochawesome + S3 Upload
 
-Upload videos and screenshots to S3 after each test run.
+1. Generate a single [Mochawesome](https://github.com/adamgruber/mochawesome) report
+1. Upload videos, screenshots, and reports to S3 after each test run
 
 ## Getting Started
 
@@ -9,7 +10,7 @@ Upload videos and screenshots to S3 after each test run.
 1. Install dependencies:
 
     ```sh
-    $ npm i
+    $ npm install
     ```
 
 1. Set the following environment variables:
@@ -23,5 +24,5 @@ Upload videos and screenshots to S3 after each test run.
 1. Run the tests:
 
     ```sh
-    $ node test.js
+    $ node scripts/test.js
     ```
