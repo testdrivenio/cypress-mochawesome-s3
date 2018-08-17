@@ -15,6 +15,19 @@ function getFiles(dir, ext, fileList = []) {
   return fileList;
 }
 
+function traverseAndModifyTimedOut (target, deep) {
+  if (target['tests'] && target['tests'].length) {
+    target['tests'].forEach(test => {
+      test.timedOut = false;
+    });
+  }
+  if (target['suites']) {
+    target['suites'].forEach(suite => {
+      traverseAndModifyTimedOut(suite, deep + 1);
+    })
+  }
+}
+
 function combineMochaAwesomeReports() {
   const reportDir = path.join(__dirname, '..', 'reports');
   const reports = getFiles(reportDir, '.json', []);
@@ -32,25 +45,16 @@ function combineMochaAwesomeReports() {
     const parsedData = JSON.parse(rawdata);
     if (idx === 0) { startTime = parsedData.stats.start; }
     if (idx === (reports.length - 1)) { endTime = parsedData.stats.end; }
-    totalSuites += parseInt(parsedData.suites.suites.length, 10);
+    totalSuites += parseInt(parsedData.stats.suites, 10);
     totalskipped += parseInt(parsedData.stats.skipped, 10);
-    // iterate through suites
-    (parsedData.suites.suites).forEach((suite) => {
-      totalTests += suite.tests.length;
-      // iterate through tests
-      (suite.tests).forEach((test) => {
-        test.timedOut = false;
-        suites.push(suite);
-        if (test.pass) {
-          totalPasses += 1
-        } else {
-          totalFailures += 1;
-        }
-        if (test.pending) {
-          totalPending += 1;
-        }
-      });
-    });
+    totalPasses += parseInt(parsedData.stats.passes, 10);
+    totalFailures += parseInt(parsedData.stats.failures, 10);
+    totalPending += parseInt(parsedData.stats.pending, 10);
+    totalTests += parseInt(parsedData.stats.tests, 10);
+
+    parsedData.suites.suites.forEach(suite => {
+      suites.push(suite)
+    })
   });
   return {
     totalSuites,
@@ -96,6 +100,11 @@ function writeReport(obj, uuid) {
     stats.hasSkipped = obj.totalskipped > 0;
     stats.passPercentClass = getPercentClass(stats.passPercent);
     stats.pendingPercentClass = getPercentClass(stats.pendingPercent);
+
+    obj.suites.forEach(suit => {
+      traverseAndModifyTimedOut(suit, 0);
+    });
+
     parsedSampleFile.suites.suites = obj.suites;
     parsedSampleFile.suites.uuid = uuid;
     fs.writeFile(outFile, JSON.stringify(parsedSampleFile), { flag: 'wx' }, (error) => {
@@ -107,4 +116,4 @@ function writeReport(obj, uuid) {
 module.exports = {
   combineMochaAwesomeReports,
   writeReport,
-}
+};
