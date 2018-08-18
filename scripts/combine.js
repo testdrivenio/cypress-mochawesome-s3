@@ -52,9 +52,11 @@ function combineMochaAwesomeReports() {
     totalPending += parseInt(parsedData.stats.pending, 10);
     totalTests += parseInt(parsedData.stats.tests, 10);
 
-    parsedData.suites.suites.forEach(suite => {
-      suites.push(suite)
-    })
+    if (parsedData && parsedData.suites && parsedData.suites.suites) {
+      parsedData.suites.suites.forEach(suite => {
+        suites.push(suite)
+      })
+    }
   });
   return {
     totalSuites,
