@@ -20,7 +20,7 @@ cypress.run({
     const uuid = uuidv1();
     combine.writeReport(data, uuid);
     rimraf(path.join(__dirname, '..', 'reports'), () => {});
-    shell.exec(`./node_modules/.bin/marge ${uuid}.json  --reportDir reports`, (code, stdout, stderr) => {
+    shell.exec(`./node_modules/.bin/marge ${uuid}.json  --reportDir mochareports`, (code, stdout, stderr) => {
       if (stderr) throw stderr;
       // upload to s3
       upload.uploadScreenshots();
