@@ -70,7 +70,7 @@ function uploadScreenshots() {
 }
 
 function uploadMochaAwesome() {
-  const reportsDir = path.join(__dirname, '..', 'reports');
+  const reportsDir = path.join(__dirname, '..', 'mochareports');
   const report = getFiles(reportsDir, [])[0];
   fs.readFile(report.path, (err, data) => {
     if (err) throw err;
