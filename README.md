@@ -1,4 +1,4 @@
-# Cypress - Mochawesome + S3 Upload
+# Cypress + Mochawesome + S3 Upload
 
 1. Generate a single [Mochawesome](https://github.com/adamgruber/mochawesome) report
 1. Upload videos, screenshots, and reports to S3 after each test run
@@ -25,4 +25,10 @@
 
     ```sh
     $ node scripts/test.js
+    ```
+
+1. Skip S3 upload:
+
+    ```sh
+    $ node scripts/test.js local
     ```

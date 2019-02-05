@@ -39,7 +39,7 @@ function getFiles(dir, fileList = []) {
           path: filePath,
           name: file,
           type: file.split('.')[1],
-        }
+        };
         fileList.push(obj);
       }
     }
@@ -82,4 +82,4 @@ module.exports = {
   uploadVideos,
   uploadScreenshots,
   uploadMochaAwesome,
-}
+};
