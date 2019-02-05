@@ -96,7 +96,7 @@ function writeReport(obj, uuid) {
     stats.end = obj.endTime;
     stats.duration =  new Date(obj.endTime) - new Date(obj.startTime);
     stats.testsRegistered = obj.totalTests - obj.totalPending;
-    stats.passPercent = Math.round((stats.passes / (stats.testsRegistered - stats.pending)) * 1000) / 10;
+    stats.passPercent = Math.round((stats.passes / (stats.tests - stats.pending)) * 1000) / 10;
     stats.pendingPercent = Math.round((stats.pending / stats.testsRegistered) * 1000) /10;
     stats.skipped = obj.totalskipped;
     stats.hasSkipped = obj.totalskipped > 0;
