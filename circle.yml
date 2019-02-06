@@ -45,7 +45,7 @@ jobs:
       - run: ls -la cypress/integration
       - run:
           name: Running E2E tests 1
-          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js'
+          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js
       - store_test_results:
           path: reports
       - store_artifacts:
@@ -68,7 +68,7 @@ jobs:
       - run: ls -la cypress/integration
       - run:
           name: Running E2E tests 2
-          command: $(npm bin)/cypress run --spec cypress/integration/sample2.spec.js'
+          command: $(npm bin)/cypress run --spec cypress/integration/sample2.spec.js
       - store_test_results:
           path: reports
       - store_artifacts:
@@ -91,7 +91,7 @@ jobs:
       - run: ls -la cypress/integration
       - run:
           name: Running E2E tests 3
-          command: $(npm bin)/cypress run --spec cypress/integration/sample3.spec.js'
+          command: $(npm bin)/cypress run --spec cypress/integration/sample3.spec.js
       - store_test_results:
           path: reports
       - store_artifacts:
