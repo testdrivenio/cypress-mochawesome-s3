@@ -32,7 +32,7 @@ jobs:
           paths:
             - .cache
             - app
-  sample1:
+  test1:
     working_directory: ~/app
     docker:
       - image: 'cypress/base:8'
@@ -55,7 +55,7 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
-  sample2:
+  test2:
     working_directory: ~/app
     docker:
       - image: 'cypress/base:8'
@@ -83,9 +83,9 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - sample1:
+      - test1:
           requires:
             - build
-      - sample2:
+      - test2:
           requires:
             - build
