@@ -78,6 +78,29 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
+  test3:
+    working_directory: ~/app
+    docker:
+      - image: 'cypress/base:8'
+        environment:
+          TERM: xterm
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: ls -la cypress
+      - run: ls -la cypress/integration
+      - run:
+          name: Running E2E tests 3
+          command: >-
+            $(npm bin)/cypress run --spec cypress/integration/sample3.spec.js
+            --reporter junit --reporter-options
+            'mochaFile=results/my-test-output.xml'
+      - store_test_results:
+          path: results
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
 workflows:
   version: 2
   build_and_test:
@@ -87,5 +110,8 @@ workflows:
           requires:
             - build
       - test2:
+          requires:
+            - build
+      - test3:
           requires:
             - build
