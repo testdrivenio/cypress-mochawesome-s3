@@ -52,6 +52,8 @@ jobs:
       - store_test_results:
           path: results
       - store_artifacts:
+          path: results
+      - store_artifacts:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
@@ -75,6 +77,8 @@ jobs:
       - store_test_results:
           path: results
       - store_artifacts:
+          path: results
+      - store_artifacts:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
@@ -96,6 +100,8 @@ jobs:
             --reporter junit --reporter-options
             'mochaFile=results/my-test-output.xml'
       - store_test_results:
+          path: results
+      - store_artifacts:
           path: results
       - store_artifacts:
           path: cypress/videos
