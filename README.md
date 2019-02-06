@@ -32,3 +32,16 @@
     ```sh
     $ node scripts/test.js local
     ```
+
+## Parallel Test Run
+
+1. Sign up for [CircleCI](https://circleci.com/) and create a new job for this project
+
+1. Set the following environment variables in [CircleCI](https://circleci.com/docs/2.0/env-vars/):
+
+    - BUCKET_NAME
+    - AWS_ACCESS_ID
+    - AWS_SECRET_KEY
+
+
+WIP
