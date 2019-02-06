@@ -54,6 +54,7 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
+      - run: apt-get install -y sudo
       - run:
           name: Install awscli
           command: sudo pip install awscli
@@ -83,6 +84,7 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
+      - run: apt-get install -y sudo
       - run:
           name: Install awscli
           command: sudo pip install awscli
@@ -112,6 +114,7 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
+      - run: apt-get install -y sudo
       - run:
           name: Install awscli
           command: sudo pip install awscli
