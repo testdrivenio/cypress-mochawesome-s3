@@ -48,9 +48,9 @@ jobs:
           command: >-
             $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js
       - store_test_results:
-          path: results
+          path: reports
       - store_artifacts:
-          path: results
+          path: reports
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -71,9 +71,9 @@ jobs:
           command: >-
             $(npm bin)/cypress run --spec cypress/integration/sample2.spec.js
       - store_test_results:
-          path: results
+          path: reports
       - store_artifacts:
-          path: results
+          path: reports
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -94,9 +94,9 @@ jobs:
           command: >-
             $(npm bin)/cypress run --spec cypress/integration/sample3.spec.js
       - store_test_results:
-          path: results
+          path: reports
       - store_artifacts:
-          path: results
+          path: reports
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
