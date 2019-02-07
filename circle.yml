@@ -50,7 +50,8 @@ jobs:
           path: reports
       - persist_to_workspace:
           root: reports
-          path: test1
+          paths:
+            - test1
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -87,7 +88,8 @@ jobs:
           path: reports
       - persist_to_workspace:
           root: reports
-          path: test2
+          paths:
+            - test2
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -124,7 +126,8 @@ jobs:
           path: reports
       - persist_to_workspace:
           root: reports
-          path: test3
+          paths:
+            - test3
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
