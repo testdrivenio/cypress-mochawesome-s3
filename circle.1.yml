@@ -57,6 +57,7 @@ jobs:
       - run:
           name: Install sudo
           command: apt-get install -y sudo
+      - run:
           name: Install python
           command: sudo apt-get install -y python-pip python-dev
       - run:
@@ -91,6 +92,7 @@ jobs:
       - run:
           name: Install sudo
           command: apt-get install -y sudo
+      - run:
           name: Install python
           command: sudo apt-get install -y python-pip python-dev
       - run:
@@ -125,6 +127,7 @@ jobs:
       - run:
           name: Install sudo
           command: apt-get install -y sudo
+      - run:
           name: Install python
           command: sudo apt-get install -y python-pip python-dev
       - run:

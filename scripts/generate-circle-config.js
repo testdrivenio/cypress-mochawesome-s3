@@ -52,6 +52,30 @@ function createJSON(fileArray, data) {
           store_artifacts: {
             path: 'cypress/screenshots',
           }
+        },
+        {
+            "run": {
+              "name": "Install sudo",
+              "command": "apt-get install -y sudo"
+            }
+        },
+        {
+            "run": {
+              "name": "Install python",
+              "command": "sudo apt-get install -y python-pip python-dev"
+            }
+        },
+        {
+            "run": {
+              "name": "Install awscli",
+              "command": "sudo pip install awscli"
+            }
+        },
+        {
+            "run": {
+              "name": "S3 Upload",
+              "command": "aws s3 cp ~/app/reports/mochawesome.json s3://$BUCKET_NAME/builds/ --metadata {\\\"git_sha1\\\":\\\"$CIRCLE_SHA1\\\"}\n"
+            }
         }
       ]
     }
