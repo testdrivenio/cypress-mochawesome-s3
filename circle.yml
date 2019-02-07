@@ -146,6 +146,17 @@ jobs:
           command: >
             aws s3 cp ~/app/reports/mochawesome.json s3://$BUCKET_NAME/builds/
             --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
+  downstream:
+    working_directory: ~/app
+    docker:
+      - image: 'cypress/base:8'
+        environment:
+          TERM: xterm
+    steps:
+      - attach_workspace:
+          at: /app/reports
+
+      - run: ls /app/reports
 workflows:
   version: 2
   build_and_test:
@@ -160,3 +171,8 @@ workflows:
       - test3:
           requires:
             - build
+      - downstream:
+          requires:
+            - test1
+            - test2
+            - test3
