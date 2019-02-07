@@ -62,7 +62,7 @@ jobs:
       - run:
           name: S3 Upload
           command: |
-            aws s3 cp $CIRCLE_ARTIFACTS/reports s3://$BUCKET_NAME/builds/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
+            aws s3 cp ~/reports s3://$BUCKET_NAME/builds/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
   test2:
     working_directory: ~/app
     docker:
@@ -93,7 +93,7 @@ jobs:
       - run:
           name: S3 Upload
           command: |
-            aws s3 cp $CIRCLE_ARTIFACTS/reports s3://$BUCKET_NAME/builds/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
+            aws s3 cp ~/reports s3://$BUCKET_NAME/builds/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
   test3:
     working_directory: ~/app
     docker:
@@ -124,7 +124,7 @@ jobs:
       - run:
           name: S3 Upload
           command: |
-            aws s3 cp $CIRCLE_ARTIFACTS/reports s3://$BUCKET_NAME/builds/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
+            aws s3 cp ~/reports s3://$BUCKET_NAME/builds/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
 workflows:
   version: 2
   build_and_test:
