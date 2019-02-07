@@ -40,8 +40,8 @@
 1. Set the following environment variables in [CircleCI](https://circleci.com/docs/2.0/env-vars/):
 
     - BUCKET_NAME
-    - AWS_ACCESS_ID
-    - AWS_SECRET_KEY
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
 
 
 WIP

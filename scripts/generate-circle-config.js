@@ -30,7 +30,7 @@ function createJSON(fileArray, data) {
         {
           run: {
             name: `Running E2E tests ${index + 1}`,
-            command: `$(npm bin)/cypress run --spec cypress/integration/${value}'`,
+            command: `$(npm bin)/cypress run --spec cypress/integration/${value}`,
           }
         },
         {
