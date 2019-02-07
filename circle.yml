@@ -55,6 +55,7 @@ jobs:
       - store_artifacts:
           path: cypress/screenshots
       - run: apt-get install -y sudo
+      - run: sudo apt-get install python-dev
       - run:
           name: Install awscli
           command: sudo pip install awscli
@@ -85,6 +86,7 @@ jobs:
       - store_artifacts:
           path: cypress/screenshots
       - run: apt-get install -y sudo
+      - run: sudo apt-get install python-dev
       - run:
           name: Install awscli
           command: sudo pip install awscli
@@ -115,6 +117,7 @@ jobs:
       - store_artifacts:
           path: cypress/screenshots
       - run: apt-get install -y sudo
+      - run: sudo apt-get install python-dev
       - run:
           name: Install awscli
           command: sudo pip install awscli
