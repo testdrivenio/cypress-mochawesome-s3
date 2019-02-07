@@ -49,8 +49,7 @@ jobs:
       - store_test_results:
           path: reports
       - persist_to_workspace:
-          root: ~/
-          path: reports
+          root: reports
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -86,8 +85,7 @@ jobs:
       - store_test_results:
           path: reports
       - persist_to_workspace:
-          root: ~/
-          path: reports
+          root: reports
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -123,8 +121,7 @@ jobs:
       - store_test_results:
           path: reports
       - persist_to_workspace:
-          root: ~/
-          path: reports
+          root: reports
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
