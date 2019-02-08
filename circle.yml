@@ -49,9 +49,9 @@ jobs:
       - store_test_results:
           path: reports
       - persist_to_workspace:
-          root: .
+          root: reports
           paths:
-            - .
+            - mochawesome.json
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -87,9 +87,9 @@ jobs:
       - store_test_results:
           path: reports
       - persist_to_workspace:
-          root: .
+          root: reports
           paths:
-            - .
+            - mochawesome.json
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -125,9 +125,9 @@ jobs:
       - store_test_results:
           path: reports
       - persist_to_workspace:
-          root: .
+          root: reports
           paths:
-            - .
+            - mochawesome.json
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
