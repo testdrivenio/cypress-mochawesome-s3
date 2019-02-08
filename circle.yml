@@ -45,13 +45,11 @@ jobs:
       - run: ls -la cypress/integration
       - run:
           name: Running E2E tests 1
-          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js
-      - store_test_results:
-          path: reports
+          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options reportFilename=sample1
       - persist_to_workspace:
           root: reports
           paths:
-            - mochawesome.json
+            - sample1.json
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -83,13 +81,11 @@ jobs:
       - run: ls -la cypress/integration
       - run:
           name: Running E2E tests 2
-          command: $(npm bin)/cypress run --spec cypress/integration/sample2.spec.js
-      - store_test_results:
-          path: reports
+          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options reportFilename=sample2
       - persist_to_workspace:
           root: reports
           paths:
-            - mochawesome.json
+            - sample2.json
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -121,13 +117,11 @@ jobs:
       - run: ls -la cypress/integration
       - run:
           name: Running E2E tests 3
-          command: $(npm bin)/cypress run --spec cypress/integration/sample3.spec.js
-      - store_test_results:
-          path: reports
+          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options reportFilename=sample3
       - persist_to_workspace:
           root: reports
           paths:
-            - mochawesome.json
+            - sample3.json
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
