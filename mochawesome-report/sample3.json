@@ -1,0 +1,78 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-02-08T00:21:25.651Z",
+    "end": "2019-02-08T00:21:28.023Z",
+    "duration": 2372,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "782af56e-e493-4187-a451-b4a219d19a2f",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "42e44062-3fdb-4ec4-a786-f01b8def0be0",
+        "title": "S3 Upload Example Success",
+        "fullFile": "",
+        "file": "",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "should display the home page correctly",
+            "fullTitle": "S3 Upload Example Success should display the home page correctly",
+            "duration": 662,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "cy.visit(\"https://mherman.org\");\ncy.get('a').contains('Michael Herman');",
+            "err": {},
+            "isRoot": false,
+            "uuid": "664a433b-632b-43e5-9a69-29e32b7e1842",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "664a433b-632b-43e5-9a69-29e32b7e1842"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 662,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2019
+}
