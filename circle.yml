@@ -54,20 +54,20 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
-      - run:
-          name: Install sudo
-          command: apt-get install -y sudo
-      - run:
-          name: Install python
-          command: sudo apt-get install -y python-pip python-dev
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
-      - run:
-          name: S3 Upload
-          command: >
-            aws s3 cp ~/app/reports/mochawesome.json s3://$BUCKET_NAME/builds/
-            --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
+      # - run:
+      #     name: Install sudo
+      #     command: apt-get install -y sudo
+      # - run:
+      #     name: Install python
+      #     command: sudo apt-get install -y python-pip python-dev
+      # - run:
+      #     name: Install awscli
+      #     command: sudo pip install awscli
+      # - run:
+      #     name: S3 Upload
+      #     command: >
+      #       aws s3 cp ~/app/reports/mochawesome.json s3://$BUCKET_NAME/builds/
+      #       --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
   test2:
     working_directory: ~/app
     docker:
@@ -90,20 +90,20 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
-      - run:
-          name: Install sudo
-          command: apt-get install -y sudo
-      - run:
-          name: Install python
-          command: sudo apt-get install -y python-pip python-dev
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
-      - run:
-          name: S3 Upload
-          command: >
-            aws s3 cp ~/app/reports/mochawesome.json s3://$BUCKET_NAME/builds/
-            --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
+      # - run:
+      #     name: Install sudo
+      #     command: apt-get install -y sudo
+      # - run:
+      #     name: Install python
+      #     command: sudo apt-get install -y python-pip python-dev
+      # - run:
+      #     name: Install awscli
+      #     command: sudo pip install awscli
+      # - run:
+      #     name: S3 Upload
+      #     command: >
+      #       aws s3 cp ~/app/reports/mochawesome.json s3://$BUCKET_NAME/builds/
+      #       --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
   test3:
     working_directory: ~/app
     docker:
@@ -126,20 +126,20 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
-      - run:
-          name: Install sudo
-          command: apt-get install -y sudo
-      - run:
-          name: Install python
-          command: sudo apt-get install -y python-pip python-dev
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
-      - run:
-          name: S3 Upload
-          command: >
-            aws s3 cp ~/app/reports/mochawesome.json s3://$BUCKET_NAME/builds/
-            --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
+      # - run:
+      #     name: Install sudo
+      #     command: apt-get install -y sudo
+      # - run:
+      #     name: Install python
+      #     command: sudo apt-get install -y python-pip python-dev
+      # - run:
+      #     name: Install awscli
+      #     command: sudo pip install awscli
+      # - run:
+      #     name: S3 Upload
+      #     command: >
+      #       aws s3 cp ~/app/reports/mochawesome.json s3://$BUCKET_NAME/builds/
+      #       --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
   downstream:
     working_directory: ~/app
     docker:
@@ -148,8 +148,8 @@ jobs:
           TERM: xterm
     steps:
       - attach_workspace:
-          at: /app/reports
-      - run: ls /app/reports
+          at: /app/mochawesome-report
+      - run: ls /app/mochawesome-report
 workflows:
   version: 2
   build_and_test:
