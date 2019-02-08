@@ -45,7 +45,7 @@ jobs:
       - run: ls -la cypress/integration
       - run:
           name: Running E2E tests 1
-          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options reportFilename=sample1
+          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options "reportFilename=sample1"
       - persist_to_workspace:
           root: reports
           paths:
@@ -81,7 +81,7 @@ jobs:
       - run: ls -la cypress/integration
       - run:
           name: Running E2E tests 1
-          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options reportFilename=sample2
+          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options "reportFilename=sample2"
       - persist_to_workspace:
           root: reports
           paths:
@@ -117,7 +117,7 @@ jobs:
       - run: ls -la cypress/integration
       - run:
           name: Running E2E tests 3
-          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options reportFilename=sample3
+          command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options "reportFilename=sample3"
       - persist_to_workspace:
           root: reports
           paths:
