@@ -47,7 +47,7 @@ jobs:
           name: Running E2E tests 1
           command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options reportFilename=sample1
       - persist_to_workspace:
-          root: reports
+          root: sample1
           paths:
             - sample1.json
       - store_artifacts:
@@ -83,7 +83,7 @@ jobs:
           name: Running E2E tests 2
           command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options reportFilename=sample2
       - persist_to_workspace:
-          root: reports
+          root: sample2
           paths:
             - sample2.json
       - store_artifacts:
@@ -119,7 +119,7 @@ jobs:
           name: Running E2E tests 3
           command: $(npm bin)/cypress run --spec cypress/integration/sample1.spec.js --reporter mochawesome --reporter-options reportFilename=sample3
       - persist_to_workspace:
-          root: reports
+          root: sample3
           paths:
             - sample3.json
       - store_artifacts:
@@ -148,9 +148,8 @@ jobs:
           TERM: xterm
     steps:
       - attach_workspace:
-          at: /app/reports
-
-      - run: ls /app/reports
+          at: /app
+      - run: ls /app
 workflows:
   version: 2
   build_and_test:
